@@ -16,9 +16,17 @@ module.exports = function(app){
 			tableData.push(req.body);
 			res.json(true);
 		} else {
-			waitingListData.push(req.body);
+			waitListData.push(req.body);
 			res.json(false);
 		}
-	})
+	});
+
+
+  app.post("/api/clear", function() {
+    tableData = [];
+    waitListData = [];
+
+    console.log(tableData);
+  });
 
 }
